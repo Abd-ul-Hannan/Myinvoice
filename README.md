@@ -1,235 +1,202 @@
-# My Invoice - Complete Invoice Management Flutter App
+# 🧾 MyInvoice
 
-A production-ready, feature-rich invoice management application built with Flutter, GetX, and Isar local database.
+A production-ready **Invoice Management App** built with Flutter for iOS and Android. Create, manage, and share professional invoices — all stored locally on your device with no internet required.
 
-## Features
+---
 
-### Core Functionalities
+## 📱 App Overview
 
-- **Dashboard**
-  - Total invoices count with visual statistics
-  - Paid/Unpaid/Draft invoice counts
-  - Revenue tracking (total and pending)
-  - Recent invoices list
-  - Quick actions for creating invoices
+MyInvoice lets freelancers and small businesses generate beautiful PDF invoices on the go. It handles everything from client details and itemized billing to tax calculations, digital signatures, and PDF sharing via WhatsApp or Email — all powered by a fast local database.
 
-- **Create/Edit Invoice**
-  - Client details management (name, email, phone, address)
-  - Company information integration
-  - Multiple invoice items with quantity, price, and auto-calculated totals
-  - Tax calculation (percentage-based)
-  - Discount options (flat amount or percentage)
-  - Digital signature pad
-  - Invoice status management (Draft, Unpaid, Paid)
-  - Form validation
+---
 
-- **Invoice List**
-  - Display all invoices with detailed information
-  - Filter by status (All, Paid, Unpaid, Draft)
-  - Search by client name or invoice number
-  - Swipe actions: Edit, Share, Delete
-  - Pull to refresh
+## ✨ Features
 
-- **Invoice Details**
-  - Complete invoice information display
-  - Company and client details
-  - Itemized list with totals
-  - Digital signature display
-  - Generate PDF action
-  - Share PDF via WhatsApp, Email, etc.
-  - Edit and Delete options
+### 📊 Dashboard
+- Summary cards: Total, Paid, Unpaid, and Draft invoice counts
+- Revenue overview: total earned and pending amount
+- Recent invoices list with quick access
+- One-tap button to create a new invoice
 
-- **PDF Generation**
-  - Professional invoice PDF layout
-  - Company logo and details
-  - Client information
-  - Itemized table with calculations
-  - Tax, discount, and grand total
-  - Digital signature inclusion
-  - Auto-save to device storage
+### 🧾 Create & Edit Invoices
+- Client details: name, email, phone, and address
+- Multiple line items with quantity, unit price, and auto-calculated subtotals
+- Tax percentage and discount (flat amount or percentage)
+- Digital signature pad for signing invoices
+- Invoice status: **Draft**, **Unpaid**, or **Paid**
+- Full form validation
 
-- **Settings**
-  - Company profile management
-  - Logo upload
-  - Contact information
-  - Tax ID/VAT number
-  - Currency selection (USD, EUR, GBP, INR, AUD, CAD, JPY, CNY)
-  - Dark/Light theme toggle
+### 📋 Invoice List
+- View all invoices in one place
+- Filter by status: All, Paid, Unpaid, Draft
+- Search by client name or invoice number
+- Swipe actions: **Edit**, **Share**, **Delete**
 
-### Technical Features
+### 📄 PDF Generation & Sharing
+- Professionally designed PDF layout
+- Includes company logo, client info, itemized table, taxes, discounts, grand total, and digital signature
+- Auto-saved to device storage
+- Share via WhatsApp, Email, or any app
 
-- **State Management**: GetX for reactive state management
-- **Local Database**: Isar for fast, local data persistence
-- **PDF Generation**: pdf package with professional templates
-- **File Sharing**: share_plus for sharing invoices
-- **Digital Signatures**: signature package for capturing signatures
-- **Image Management**: image_picker for company logos
-- **Modern UI**: Material 3 design with smooth animations
-- **Dark Mode**: Complete theme support
+### ⚙️ Company Settings
+- Company name, email, phone, and address
+- Upload company logo
+- Tax ID / VAT number
+- Currency selection (USD, EUR, GBP, INR, AUD, CAD, JPY, CNY)
+- Dark / Light theme toggle
 
-## Tech Stack
+---
 
-- **Framework**: Flutter 3.x+
-- **State Management**: GetX
-- **Local Database**: Isar
-- **PDF Generation**: pdf, printing packages
-- **Signature**: signature package
-- **Sharing**: share_plus
-- **Image Picking**: image_picker
-- **Charts**: fl_chart
-- **UI Components**: flutter_slidable, intl
+## 🛠️ Tech Stack
 
-## Project Structure
+| Technology | Purpose |
+|---|---|
+| Flutter 3.x | Cross-platform UI framework |
+| Dart | Programming language |
+| GetX | State management & routing |
+| Isar | Fast local database |
+| pdf & printing | PDF generation |
+| share_plus | File sharing across apps |
+| signature | Digital signature capture |
+| image_picker | Company logo upload |
+| fl_chart | Dashboard charts |
+| flutter_slidable | Swipe actions on list items |
+
+---
+
+## 📁 Project Structure
 
 ```
 lib/
-├── controllers/          # GetX controllers
-│   ├── company_controller.dart
-│   └── invoice_controller.dart
-├── models/              # Data models
+├── controllers/
+│   ├── company_controller.dart     # Company settings state
+│   └── invoice_controller.dart     # Invoice CRUD & filtering
+├── models/
 │   ├── company_model.dart
 │   ├── invoice_model.dart
 │   └── invoice_item_model.dart
-├── services/            # Business logic services
-│   ├── isar_service.dart
-│   └── pdf_service.dart
+├── services/
+│   ├── isar_service.dart           # Local database operations
+│   └── pdf_service.dart            # PDF generation logic
 ├── views/
-│   ├── screens/        # App screens
+│   ├── screens/
 │   │   ├── dashboard_screen.dart
 │   │   ├── create_invoice_screen.dart
 │   │   ├── invoice_list_screen.dart
 │   │   ├── invoice_details_screen.dart
 │   │   └── settings_screen.dart
-│   └── widgets/        # Reusable widgets
+│   └── widgets/
 │       └── stat_card.dart
-├── routes/             # App routing
+├── routes/
 │   └── app_routes.dart
-├── utils/              # Utilities
+├── utils/
 │   └── theme.dart
-└── main.dart           # App entry point
+└── main.dart
 ```
 
-## Installation
+---
 
-1. Clone the repository
-2. Navigate to the project directory:
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) ≥ 3.0.0
+- Android Studio (for Android) or Xcode (for iOS)
+- A physical device or emulator
+
+### Installation
+
+1. **Clone the repository**
+
    ```bash
-   cd my_invoice
+   git clone https://github.com/Abd-ul-Hannan/Myinvoice.git
+   cd Myinvoice
    ```
 
-3. Install dependencies:
+2. **Install dependencies**
+
    ```bash
    flutter pub get
    ```
 
-4. Generate Isar schema (if needed):
+3. **Generate Isar database schema**
+
    ```bash
    flutter pub run build_runner build
    ```
 
-5. Run the app:
+4. **Run the app**
+
    ```bash
-   flutter run
+   # Android
+   flutter run -d android
+
+   # iOS
+   flutter run -d ios
    ```
-
-## Usage
-
-### First Time Setup
-
-1. Open the app and navigate to Settings (gear icon in Dashboard)
-2. Configure your company information:
-   - Company name
-   - Email, phone, address
-   - Tax ID/VAT number
-   - Upload company logo (optional)
-   - Select currency
-3. Save changes
-
-### Creating an Invoice
-
-1. From Dashboard, tap "New Invoice" or "Create New Invoice"
-2. Fill in client details (name is required)
-3. Add invoice items:
-   - Item name, quantity, and price
-   - Add more items using the + button
-   - Remove items with the delete icon
-4. Set tax percentage and discount (optional)
-5. Add digital signature using the signature pad
-6. Choose invoice status (Draft, Unpaid, or Paid)
-7. Tap "Save Draft" or "Generate PDF"
-
-### Managing Invoices
-
-- **View All**: Access invoice list from Dashboard
-- **Filter**: Use filter chips (All, Paid, Unpaid, Draft)
-- **Search**: Type client name or invoice number in search bar
-- **Edit**: Swipe left on an invoice and tap Edit
-- **Share**: Swipe left and tap Share (PDF must be generated)
-- **Delete**: Swipe left and tap Delete
-
-### Generating and Sharing PDFs
-
-1. Open an invoice from the list
-2. Tap "Generate PDF" button
-3. PDF is automatically saved to device storage
-4. Tap "Share" to send via WhatsApp, Email, etc.
-
-## Features Highlights
-
-### Real-World Implementation
-- No dummy data - all features are fully functional
-- Actual local database storage with Isar
-- Real PDF generation with professional layout
-- Working file sharing across apps
-- Complete CRUD operations
-
-### Modern UI/UX
-- Material 3 design
-- Smooth page transitions
-- Animated cards and statistics
-- Responsive layouts
-- Dark mode support
-- Intuitive navigation
-
-### Production Ready
-- Input validation
-- Error handling
-- Loading states
-- Success/error notifications
-- Data persistence
-- Clean architecture
-
-## Requirements
-
-- Flutter SDK: >=3.0.0 <4.0.0
-- Dart SDK: Compatible with Flutter version
-- iOS: 11.0 or higher
-- Android: API level 21 (Android 5.0) or higher
-
-## Permissions
-
-The app requires the following permissions:
-
-### Android
-- Storage access (for saving and reading PDFs)
-- Camera (for company logo upload)
-
-### iOS
-- Photo library access (for company logo upload)
-- Files access (for PDF storage)
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Support
-
-For issues, questions, or contributions, please contact the development team.
-
-## Version
-
-Current Version: 1.0.0
 
 ---
 
-Built with Flutter ❤️
+## 📖 How to Use
+
+### First-Time Setup
+1. Open the app and tap the ⚙️ **Settings** icon on the Dashboard
+2. Enter your company details (name, email, phone, address)
+3. Upload your company logo (optional)
+4. Set your preferred currency and Tax ID
+5. Save — you're ready to invoice!
+
+### Creating an Invoice
+1. Tap **"New Invoice"** from the Dashboard
+2. Fill in client details (name is required)
+3. Add line items: name, quantity, and price
+4. Apply tax and/or discount if needed
+5. Sign using the digital signature pad
+6. Set the status and tap **Save** or **Generate PDF**
+
+### Managing Invoices
+- **Filter** invoices by status using the chips (All / Paid / Unpaid / Draft)
+- **Search** by client name or invoice number
+- **Swipe left** on any invoice to Edit, Share, or Delete
+
+### Sharing a PDF
+1. Open an invoice and tap **Generate PDF**
+2. The PDF is saved to your device automatically
+3. Tap **Share** to send it via WhatsApp, Email, or any app
+
+---
+
+## 🔐 Permissions
+
+### Android
+- Storage access — for saving and reading PDFs
+- Camera / Gallery — for company logo upload
+
+### iOS
+- Photo Library access — for company logo upload
+- Files access — for PDF storage
+
+---
+
+## 📋 Requirements
+
+- Flutter SDK: `>=3.0.0 <4.0.0`
+- iOS: 11.0 or higher
+- Android: API level 21 (Android 5.0) or higher
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 👤 Author
+
+**Abd-ul-Hannan**  
+GitHub: [@Abd-ul-Hannan](https://github.com/Abd-ul-Hannan)
+
+---
+
+> Built with ❤️ using Flutter
